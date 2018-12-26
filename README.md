@@ -5,15 +5,17 @@ application up and running.
 
 Things you may want to cover:
 
-* Ruby version
+* Ruby version 
+5.2.0
 
-* System dependencies
+* System dependencies 
+查看gemfile文件
 
-* Configuration
+* Configuration  
 
-* Database creation
+* Database 
+Mysql
 
-* Database initialization
 
 * How to run the test suite
 
