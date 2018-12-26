@@ -1,0 +1,114 @@
+<script>
+    function logout(){
+        var con;
+        con=confirm("是否退出登录？"); //在页面上弹出对话框
+        if(con)
+            window.open("/sessions/new","_self")
+    }
+</script>
+<header id="header" class="header-scrolled">
+  <div class="container">
+
+    <div class="row align-items-center justify-content-between d-flex">
+      <div id="logo">
+        <div class="nowuser">
+          <p>当前用户：<br>
+            <% username =@username2%>
+            <%=username %></p>
+        </div>
+      </div>
+      <nav id="nav-menu-container">
+        <ul class="nav-menu" style="font-size: 30px;" >
+          <li><a href="/stockcontroller_one/new">查询主页</a></li>
+          <li><a href="javascript:void(0)" onclick="logout()">退出登录</a></li>
+        </ul>
+      </nav><!-- #nav-menu-container -->
+    </div>
+
+  </div>
+
+</header>
+<!-- End Header Area -->
+
+
+<!-- Start Banner Area -->
+<section class="home-banner-area relative" style="height: 900px; width: 100%;">
+  <div class="container">
+    <div class="row fullscreen d-flex align-items-center justify-content-center">
+      <div class="banner-content col-lg-7 col-md-12">
+        <div class="title2">
+          <% path=@picture_path %>
+          <p>股票代码<%= path%>的诊断报告</p>
+        </div>
+        <div class="graph">
+          <div id="container1" style="min-width: 400px; max-width: 600px; height: 400px;  margin: 0 auto; "></div>
+        </div>
+      </div>
+    </div>
+    <a href="/stockcontroller_two/history"><div class="container2">
+      查看历史纪录</div></a>
+  </div>
+</section>
+<script>
+    var chart = Highcharts.chart('container1', {
+        chart: {
+            polar: true,
+            type: 'line'
+        },
+        title: {
+            text: '股票分析',
+            style: {
+                fontSize: '30px'
+            }
+        },
+        <%summary=@summary%>
+        subtitle: {
+            text: '总评分<%=summary %>',
+            style: {
+                fontSize: '20px'
+            }
+        },
+        plotOptions: {
+            series: {
+                events: {
+                    legendItemClick: function(e) {
+                        return false; // 直接 return false 即可禁用图例点击事件
+                    }
+                }
+            }
+        },
+        pane: {
+            size: '80%'
+        },
+        xAxis: {
+            categories: ['相对估值', '事件驱动', '市场强度','主力资金','盈利动力'],
+            tickmarkPlacement: 'on',
+            lineWidth: 0
+        },
+        yAxis: {
+            gridLineInterpolation: 'polygon',
+            lineWidth: 0,
+            min: 0,
+        },
+        tooltip: {
+            shared: true,
+            pointFormat: '<span style="color:{series.color}">{series.name}: <b>{point.y:,.0f}</b><br/>'
+        },
+        series: [{
+            name: '总体评价',
+            <%avergae=@average %>
+            <%variance=@variance %>
+            <%sp500=@SP500 %>
+            <%transaction=@transaction %>
+            <%profit=@profit %>
+            data: [<%=avergae %>,<%=variance %>,<%=sp500 %>,<%=transaction %>,<%=profit %>],
+            pointPlacement: 'on',
+        }],
+        credits:{
+            enabled: false
+        },
+        legend:{
+            enabled: false
+        }
+    });
+</script>

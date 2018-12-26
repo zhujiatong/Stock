@@ -1,0 +1,41 @@
+<% if flash[:login_error] %>
+  <script>
+      alert("用户名或密码错误，请重新输入");
+  </script>
+<% end %>
+<div class="div3">
+  <p align="center"><img src="/assets/ICON.png" width="130" height="130"/> 猫头鹰深度测股系统</p>
+</div>
+<div align="center" class="div1">
+<button data-toggle="modal" data-target="#login" class="btn btn-primary btn-lg"><span class="glyphicon glyphicon-log-in"></span> 登录</button>
+</div>
+<div align="center" class="div2">
+  <a href="/register/new" class="btn btn-info btn-lg"><span class="glyphicon glyphicon-arrow-right"></span> 没有账号？点击注册</a>
+</div>
+<div class="modal fade" id="login" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+        <button class="close" data-dismiss="modal">
+          <span>&times;</span>
+        </button>
+      </div>
+      <div class="modal-title">
+        <h1 class="text-center">登录</h1>
+      </div>
+      <div class="modal-body">
+        <%= simple_form_for :session, url: :sessions_create do |f| %>
+          <div class="form-group">
+            <%= f.input :username, label: '用户名'%>
+          </div>
+          <div class="form-group">
+            <%= f.input :password, label: '密码'%>
+          </div>
+          <div class="text-right">
+            <button class="btn btn-primary" type="submit">登录</button>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

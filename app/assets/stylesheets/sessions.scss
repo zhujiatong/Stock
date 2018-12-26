@@ -1,0 +1,19 @@
+// Place all the styles related to the sessions controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+@import "bootstrap-sprockets";
+@import "bootstrap";
+body{
+  background-image: url("/assets/header-bg.png");
+  margin-top:80px;
+}
+.div1{
+  margin-top:100px
+}
+.div2{
+  margin-top:60px
+}
+.div3{
+  font-size: 45px;
+  color: #FFFFFF;
+}

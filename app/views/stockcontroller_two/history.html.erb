@@ -1,0 +1,55 @@
+<script>
+  function logout(){
+      var con;
+      con=confirm("是否退出登录？"); //在页面上弹出对话框
+      if(con)
+          window.open("/sessions/new","_self")
+  }
+</script>
+<header id="header" class="header-scrolled">
+  <div class="container">
+
+    <div class="row align-items-center justify-content-between d-flex">
+      <div id="logo">
+        <div class="nowuser">
+          <p>当前用户：<br>
+            <!-- 这里写当前用户的用户名 -->
+            <% name=@username %>
+            <%= name %></p>
+        </div>
+        <!-- <a href="index.html"><img src="img/logo.png" alt="" title="" /></a> -->
+      </div>
+      <nav id="nav-menu-container">
+        <ul class="nav-menu" style="font-size: 30px;" >
+          <li><a href="/stockcontroller_one/new">查询主页</a></li>
+          <li><a href="javascript:void(0)" onclick="logout()">退出登录</a></li>
+        </ul>
+      </nav><!-- #nav-menu-container -->
+    </div>
+
+  </div>
+
+</header>
+<!-- End Header Area -->
+
+
+<!-- Start Banner Area -->
+<section class="home-banner-area relative" style="height: 900px; width: 100%;">
+  <div class="container">
+    <div class="row fullscreen d-flex align-items-center justify-content-center">
+      <div class="banner-content col-lg-10 col-md-12">
+        <div class="title">
+          <% path=@picture_path %>
+          <p>股票代码<%= path%>的价格走势图</p>
+        </div>
+        <div class="graph">
+          <div id="container1" style="min-width:400px;height:400px; margin-top:8px;">
+            <img src="/assets/results/<%= path%>.png" height="400px" width="1200px"/>
+          </div>
+        </div>
+        <a href="/stockcontroller_two/report"><div class="container2">
+          查看诊断报告</div></a>
+      </div>
+    </div>
+  </div>
+</section>

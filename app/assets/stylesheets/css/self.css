@@ -1,0 +1,83 @@
+.title {
+	height: 50px;
+	width: 500px;
+	/*border: 1px solid red;*/
+	display: block;
+	margin-top:200px;
+	text-align: center;
+	color: #fff;
+	font-size: 30px;
+}
+.graph {
+	height: 420px;
+	width: 800px;
+	/*border: 1px solid red;*/
+	display: block;
+	margin-left:-100px;
+	/*margin-top:0px;*/
+	text-align: center;
+}
+.des {
+	height: 50px;
+	width: 500px;
+	/*border: 1px solid red;*/
+	display: block;
+	margin:0px auto;
+	margin-top:0px;
+	text-align: center;
+}
+.bcontainner {
+	height: 80px;
+	width: 800px;
+	/*border: 1px solid red;*/
+	display: block;
+	margin:0px auto;
+	margin-top:0px;
+	text-align: center;
+	
+	padding-top: 10px;
+	
+	padding-left: 80px;
+}
+.bcontainner .YuCeAnNiu{
+	/*border: 1px solid red;*/
+	display: block;
+	margin-top:0px;
+	text-align: center;
+	color: #fff;
+	font-size: 30px;
+
+}
+
+.bcontainner .jiange{
+	height: 60px;
+	width: 230px;
+	/*border: 1px solid red;*/
+	display: block;
+	margin:0px auto;
+	margin-top:0px;
+	text-align: center;
+
+}
+.bcontainner .ZhenDuanAnNiu{
+	height: 60px;
+	width: 200px;
+	/*border: 1px solid red;*/
+	display: block;
+	margin:0px auto;
+	margin-top:0px;
+	text-align: center;
+	margin-right: 60px;
+	color: #fff;
+	font-size: 30px;
+}
+.container1 {
+	margin-top:100px;
+}
+.container2{
+	display: block;
+	margin-left:30px;
+	text-align: center;
+	color: #fff;
+	font-size: 30px;
+}

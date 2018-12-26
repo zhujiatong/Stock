@@ -1,0 +1,66 @@
+<% if flash[:name_error] %>
+  <script>
+      alert("股票代码输入错误，请重新输入");
+  </script>
+<% end %>
+<script>
+    function logout(){
+        var con;
+        con=confirm("是否退出登录？"); //在页面上弹出对话框
+        if(con)
+            window.open("/sessions/new","_self")
+        return true
+    }
+</script>
+<header id="header" class="header-scrolled">
+  <div class="container">
+
+    <div class="row align-items-center justify-content-between d-flex">
+      <div id="logo">
+        <div class="nowuser">
+          <p>当前用户：<br>
+            <!-- 这里写当前用户的用户名 -->
+            <% name=@username %>
+            <%= name %>
+          </p>
+        </div>
+        <!-- <a href="index.html"><img src="img/logo.png" alt="" title="" /></a> -->
+      </div>
+      <nav id="nav-menu-container">
+        <ul class="nav-menu" style="font-size: 30px;" >
+
+          <li><a href="/stockcontroller_one/new">查询主页</a></li>
+          <li><a href="javascript:void(0)" onclick="logout()" >退出登录</a></li>
+        </ul>
+      </nav><!-- #nav-menu-container -->
+    </div>
+
+  </div>
+
+</header>
+<!-- End Header Area -->
+
+
+<!-- Start Banner Area -->
+<section class="home-banner-area relative" style="
+height: 900px;
+    width: 100%;
+">
+  <div class="container">
+    <div class="row fullscreen d-flex align-items-center justify-content-center">
+      <div class="banner-content col-lg-8 col-md-12">
+        <h1 class="wow fadeIn" data-wow-duration="4s"><img src="/assets/ICON.png" width="130" height="130"/> 猫头鹰深度测股系统</h1>
+        <p class="text-white">
+          请输入您要查询的股票代码：
+        </p>
+
+        <div class="input-wrap">
+          <form action="/stockcontroller_one/create" class="form-box d-flex justify-content-between">
+            <input type="text" placeholder="股票代码" class="form-control" name="stockname">
+            <button type="submit" class="btn search-btn">查询</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
